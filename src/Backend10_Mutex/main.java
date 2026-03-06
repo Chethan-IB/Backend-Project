@@ -11,11 +11,11 @@ public class main {
     public static void main(String[] args) {
         Backend9_Synchronization.Count count=new Count();
         Lock lock=new ReentrantLock();
-        Backend9_Synchronization.Adder adder=new Adder(count,lock);
-        Subtractor subtractor=new Subtractor(count,lock);
 
-        Thread thread1=new Thread(adder);
-        Thread thread2=new Thread(subtractor);
+
+
+        Thread thread1=new Thread();
+        Thread thread2=new Thread();
         thread1.start();
         thread2.start();
 

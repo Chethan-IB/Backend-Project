@@ -4,10 +4,9 @@ public class main {
     public static void main(String[] args) {
         Count count=new Count();
 
-        Adder adder=new Adder();
         Subtractor subtractor=new Subtractor();
 
-        Thread thread1=new Thread(adder);
+        Thread thread1=new Thread();
         Thread thread2=new Thread(subtractor);
         thread1.start();
         thread2.start();
