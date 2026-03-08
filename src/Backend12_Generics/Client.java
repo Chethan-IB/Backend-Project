@@ -39,10 +39,10 @@ public class Client {
 //        map2.put(89.0, "Manvendra");
 
 
-        doSomething(list);
+        doSomething();
 
         List<Double> doubles = new ArrayList<>();
-        doSomething(doubles);
+        doSomething();
 
         List<String> strings = new ArrayList<>();
 //        doSomething(strings);
@@ -55,7 +55,8 @@ public class Client {
         System.out.println("DEBUG");
     }
 
-    public static void doSomething(List<? extends Number> numbers) {
+    public static void doSomething() {
+        long numbers =0;
         System.out.println(numbers);
     }
 
