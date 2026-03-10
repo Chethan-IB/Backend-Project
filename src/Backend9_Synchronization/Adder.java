@@ -4,8 +4,9 @@ public class Adder implements Runnable {
 
     private Count count;
 
-    public Adder() {
-        this.count=count;
+
+    public Adder(Count count) {
+
     }
 
     @Override

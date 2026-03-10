@@ -5,77 +5,97 @@ public class Student {
     int age;
     String batch;
     double psp;
-    int gradyear;
+    int gradYear;
+    // ....Lot of attrs.
 
-
-    public Student(String name, int age, String batch, double psp, int gradyear) {
-        this.name = name;
-        this.age = age;
-        this.batch = batch;
-        this.psp = psp;
-        this.gradyear = gradyear;
-    }
-
-
-
-    public Student(Builder builder) {
-        //Validations
-
-        if(builder.getAge()<18){
-            throw new RuntimeException("Age must be greater than 18");
-        }
-
-        if(builder.getGradyear()<2025){
-            throw new RuntimeException("Gradyear must be greater than 2025");
-        }
-        // validations are done here
-
-
+    private Student(Builder builder) {
+//        //Validations start.
+//        if(builder.getAge() < 18) {
+//            throw new RuntimeException("Age must be at least 18");
+//        }
+//        if (builder.getGradYear() > 2025) {
+//            throw new RuntimeException("Grad year must be lesser than 2025");
+//        }
+//        //Validations end.
 
         this.name = builder.getName();
         this.age = builder.getAge();
         this.batch = builder.getBatch();
         this.psp = builder.getPsp();
-        this.gradyear = builder.getGradyear();
+        this.gradYear = builder.getGradYear();
     }
 
-    public String getName() {
-        return name;
+    public static Builder getBuilder() {
+        return new Builder();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    /// Inner Class of Student class.
+    public static class Builder {
+        String name;
+        int age;
+        String batch;
+        double psp;
+        int gradYear;
+        // ....Lot of attrs.
 
-    public int getAge() {
-        return age;
-    }
+        private Builder() {
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+        }
 
-    public String getBatch() {
-        return batch;
-    }
+        public Student build() {
+            if (this.age < 18) {
+                throw new RuntimeException("Age must be at least 18");
+            }
+            if (this.gradYear < 2025) {
+                throw new RuntimeException("GradYear must be at least 2025");
+            }
 
-    public void setBatch(String batch) {
-        this.batch = batch;
-    }
+            return new Student(this);
+        }
 
-    public double getPsp() {
-        return psp;
-    }
+        public String getName() {
+            return name;
+        }
 
-    public void setPsp(double psp) {
-        this.psp = psp;
-    }
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
 
-    public int getGradyear() {
-        return gradyear;
-    }
+        public int getAge() {
+            return age;
+        }
 
-    public void setGradyear(int gradyear) {
-        this.gradyear = gradyear;
+        public Builder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public String getBatch() {
+            return batch;
+        }
+
+        public Builder setBatch(String batch) {
+            this.batch = batch;
+            return this;
+        }
+
+        public double getPsp() {
+            return psp;
+        }
+
+        public Builder setPsp(double psp) {
+            this.psp = psp;
+            return this;
+        }
+
+        public int getGradYear() {
+            return gradYear;
+        }
+
+        public Builder setGradYear(int gradYear) {
+            this.gradYear = gradYear;
+            return this;
+        }
     }
 }
